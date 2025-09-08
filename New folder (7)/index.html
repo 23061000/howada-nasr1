@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>تهنئة عيد ميلاد هويدا</title>
+<style>
+  :root{
+    --primary:#ff2e72;
+    --secondary:#6c63ff;
+    --accent:#ffd166;
+    --glass: rgba(255,255,255,.14);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Tahoma", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+  }
+  /* Background image + gradient overlay */
+  .bg{
+    position:fixed; inset:0;
+    background:
+      radial-gradient(1200px 800px at 80% -10%, rgba(255,255,255,.12), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.65)),
+  url('88.jpg') center/cover no-repeat fixed;
+    filter:saturate(1.1) contrast(1.02);
+    transform:scale(1.02);
+    z-index:-2;
+  }
+  /* Soft blur overlay */
+  .blur{
+    position:fixed; inset:0; backdrop-filter: blur(2px);
+    z-index:-1;
+  }
+  .container{
+    display:grid;
+    place-items:center;
+    min-height:100dvh;
+    padding:24px;
+  }
+  .card{
+    width:min(900px, 92vw);
+    background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:28px;
+    padding:28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
+  }
+  .chip{
+    position:absolute; inset:auto 16px 16px auto;
+    background: rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.18);
+    padding:6px 12px; border-radius:999px; font-size:12px; letter-spacing:.5px
+  }
+  h1{
+    margin:0 0 10px;
+    font-size: clamp(28px, 5vw, 46px);
+    line-height:1.1;
+    text-shadow:0 6px 20px rgba(0,0,0,.45);
+  }
+  .lead{
+    font-size: clamp(16px, 2.6vw, 20px);
+    color:#f5f5f5;
+    opacity:.95;
+    margin-bottom:18px;
+  }
+  .divider{
+    height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+    margin:18px 0;
+  }
+  .wish{
+    font-size: clamp(16px, 2.6vw, 20px);
+    line-height:1.9;
+  }
+  .high{
+    color: var(--accent);
+    font-weight:700;
+    text-shadow:0 4px 22px rgba(0,0,0,.4);
+  }
+  .actions{
+    display:flex; flex-wrap:wrap; gap:12px; margin-top:18px
+  }
+  .btn{
+    appearance:none; border:none; cursor:pointer;
+    padding:12px 18px; border-radius:16px;
+    font-size:16px; font-weight:700;
+    transition:transform .12s ease, box-shadow .12s ease, opacity .2s;
+    color:#111;
+    background: linear-gradient(135deg, var(--accent), #fff3bd);
+    box-shadow:0 10px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.6);
+  }
+  .btn:hover{ transform: translateY(-2px); }
+  .btn.secondary{
+    color:#fff;
+    background:linear-gradient(135deg, var(--primary), var(--secondary));
+  }
+  footer{
+    text-align:center; padding:18px; font-size:12px; opacity:.85
+  }
+
+  /* Confetti */
+  canvas#confetti{
+    position:fixed; inset:0; pointer-events:none; z-index:2;
+  }
+
+  /* Floating shapes */
+  .float{
+    position:absolute; filter: blur(10px); opacity:.35; z-index:-1;
+    animation: bob 10s ease-in-out infinite;
+  }
+  .float.one{ width:220px; height:220px; left:-60px; top:-60px; background:radial-gradient(circle at 30% 30%, #ffffff55, #ff2e72cc) }
+  .float.two{ width:260px; height:260px; right:-80px; bottom:-80px; background:radial-gradient(circle at 70% 70%, #ffffff33, #6c63ffcc); animation-delay: -3s }
+  @keyframes bob{
+    0%,100%{ transform: translateY(0) }
+    50%{ transform: translateY(18px) }
+  }
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div class="bg"></div>
+<div class="blur"></div>
+
+<!-- صورة تهنئة -->
+<div style="display:flex;justify-content:center;margin-top:32px;">
+  <img src="88.jpg" alt="تهنئة هويدا" style="max-width:320px;width:90vw;border-radius:22px;box-shadow:0 8px 32px #0005;margin-bottom:18px;object-fit:cover;" loading="lazy">
+</div>
+
+<div class="container">
+  <article class="card" role="article" aria-label="بطاقة تهنئة عيد ميلاد">
+    <div class="float one"></div>
+    <div class="float two"></div>
+    <div class="chip">عيد ميلاد سعيد</div>
+    <header>
+      <h1>كل سنة وأنتِ طيبة يا <span class="high">هويدا</span> 🎉</h1>
+      <p class="lead">يوم جديد بيتزيّن بوجودك، وابتسامتك أحلى هدية في الدنيا.</p>
+    </header>
+
+    <div class="divider"></div>
+
+    <section class="wish">
+      <p>
+        ربنا يجعلها سنة كلها <span class="high">فرح ونجاح</span>، ويحقق لكِ كل اللي بتتمنّيه.
+        دايمًا منورة حياتنا بذوقك وروحك الحلوة،
+        وقلوبنا بتدعيلك بالسعادة والصحة وراحة البال.
+      </p>
+      <p>
+        استمتعي بيومك، وخلّي ذكرياته تفضل حلوة على طول. 🎂✨
+      </p>
+    </section>
+
+    <div class="actions">
+      <button class="btn" onclick="window.print()">حفظ كـ PDF</button>
+      <a class="btn secondary" target="_blank"
+         href="https://wa.me/?text=%D9%83%D9%84%20%D8%B3%D9%86%D8%A9%20%D9%88%D8%A3%D9%86%D8%AA%D9%90%20%D8%B7%D9%8A%D8%A8%D8%A9%20%D9%8A%D8%A7%20%D9%87%D9%88%D9%8A%D8%AF%D8%A7%20%F0%9F%8E%89%20%7C%20Happy%20Birthday%20Howaida!%20">
+        مشاركة على واتساب
+      </a>
+    </div>
+  </article>
+</div>
+
+<footer>صُنع بحُب — تهنئة خاصة لـ هويدا 💖</footer>
+
+<script>
+// Simple confetti animation (pure JS, no libs)
+(function() {
+  const canvas = document.getElementById('confetti');
+  const ctx = canvas.getContext('2d');
+  let W, H; const TAU = Math.PI*2;
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  window.addEventListener('resize', resize); resize();
+
+  const pieces = Array.from({length: 140}, () => ({
+    x: Math.random()*W,
+    y: Math.random()*H - H,
+    r: Math.random()*6 + 2,
+    a: Math.random()*TAU,
+    v: Math.random()*1.5 + .6,
+    w: (Math.random()-.5)*0.08
+  }));
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const p of pieces){
+      p.a += p.w;
+      p.y += p.v + Math.cos(p.a)*0.4;
+      p.x += Math.sin(p.a)*0.6;
+      if(p.y > H + 8){ p.y = -10; p.x = Math.random()*W; }
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.a);
+      ctx.fillStyle = ['#ffd166','#ff2e72','#6c63ff','#ffffff'][p.r%4|0];
+      ctx.fillRect(-p.r, -p.r, p.r*2, p.r*2);
+      ctx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
